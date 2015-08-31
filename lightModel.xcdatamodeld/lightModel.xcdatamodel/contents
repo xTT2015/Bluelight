@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BlueDevice" representedClassName="BlueDevice" isAbstract="YES" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deviceID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="deviceType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="maxDeviceID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="networkID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="network" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Network" syncable="YES"/>
+    </entity>
+    <entity name="Light" representedClassName="Light" parentEntity="BlueDevice" syncable="YES">
+        <attribute name="groupID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="on" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="Network" representedClassName="Network" syncable="YES">
+        <attribute name="maxDeviceID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="networkID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="lights" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Light" syncable="YES"/>
+        <relationship name="remoters" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Remoter" syncable="YES"/>
+    </entity>
+    <entity name="Remoter" representedClassName="Remoter" parentEntity="BlueDevice" syncable="YES"/>
+    <elements>
+        <element name="BlueDevice" positionX="-54" positionY="45" width="128" height="150"/>
+        <element name="Light" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Network" positionX="-63" positionY="0" width="128" height="133"/>
+        <element name="Remoter" positionX="-54" positionY="63" width="128" height="45"/>
+    </elements>
+</model>
